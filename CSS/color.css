@@ -1,0 +1,26 @@
+:root {
+    --mo-red: #f44336;
+    --mo-blue: #2196f3;
+}
+
+.mo-light {
+    --mo-red-1: #ef5350;
+    --mo-red-2: #e57373;
+    --mo-red-3: #ef9a9a;
+    --mo-red-4: #ffcdd2;
+    --mo-blue-1: #42a5f5;
+    --mo-blue-2: #64b5f6;
+    --mo-blue-3: #90caf9;
+    --mo-blue-4: #bbdefb;
+}
+
+.mo-dark {
+    --mo-red-1: #e53935;
+    --mo-red-2: #d32f2f;
+    --mo-red-3: #c62828;
+    --mo-red-4: #b71c1c;
+    --mo-blue-1: #1e88e5;
+    --mo-blue-2: #1976d2;
+    --mo-blue-3: #1565c0;
+    --mo-blue-4: #0d47a1;
+}
