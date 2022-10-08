@@ -1,1 +1,11 @@
+.*
+*.lock
+.gitignore
 test.html
+Docs/zh-cn/node_modules
+Docs/zh-cn/package.json
+Docs/zh-cn/docs/_data
+Docs/zh-cn/docs/.vitepress
+Docs/zh-cn/docs/images
+Docs/zh-cn/docs/public
+
