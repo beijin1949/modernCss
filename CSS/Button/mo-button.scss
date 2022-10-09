@@ -1,5 +1,37 @@
-.mo-light{
-    .mo-btn{
-        padding: 10px;
+@import '../color.scss';
+
+.mo-light {
+    .mo-btn {
+        padding: 6px 12px;
+        position: relative;
+        border: none;
+        border-radius: $mo-border-radius;
+        transition: all $mo-transition;
+        overflow: hidden;
+        cursor: pointer;
     }
+
+    .mo-sm {
+        padding: 3px 6px;
+    }
+
+    .mo-lg {
+        padding: 8px 18px;
+    }
+
+    @each $colorKey, $color in $mo-colors {
+        .mo-#{$colorKey}{
+            background-color: $color;
+            color: white;
+    
+            &:hover {
+                background-color: lighten($mo-blue, 20%);
+            }
+    
+            &:focus {
+                background-color: var(--mo-blue-1);
+            }
+        }
+    }
+
 }

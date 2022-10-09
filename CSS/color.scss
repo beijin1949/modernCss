@@ -1,0 +1,29 @@
+$colors: (
+    "red":#f44336,
+    "red-1":#ffcdd2,
+    "red-2":#ef9a9a,
+    "red-3":#e57373,
+    "red-4":#ef5350,
+    "red-5":#e53935,
+    "red-6":#d32f2f,
+    "red-7":#c62828,
+    "red-8":#b71c1c,
+
+    "blue":#2196f3,
+    "blue-1":#42a5f5,
+    "blue-2":#64b5f6,
+    "blue-3":#90caf9,
+    "blue-4":#bbdefb,
+    "blue-5":#1e88e5,
+    "blue-6":#1976d2,
+    "blue-7":#1565c0,
+    "blue-8":#0d47a1,
+);
+$border-radius: 4px;
+$transition: .3s;
+
+:export {
+    // mo-colors: $colors;
+    mo-border-radius: $border-radius;
+    mo-transition: $transition;
+}
