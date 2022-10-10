@@ -22,8 +22,3 @@ $colors: (
 $border-radius: 4px;
 $transition: .3s;
 
-:export {
-    // mo-colors: $colors;
-    mo-border-radius: $border-radius;
-    mo-transition: $transition;
-}
