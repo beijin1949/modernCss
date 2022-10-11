@@ -1,14 +1,42 @@
 @import '../color.scss';
+;
 
 .mo-light {
     .mo-btn {
         padding: 6px 12px;
-        position: relative;
         border: none;
         border-radius: $mo-border-radius;
         transition: all $mo-transition;
-        overflow: hidden;
         cursor: pointer;
+    }
+
+    .mo-btn-animation {
+        padding: 6px 12px;
+        border: none;
+        border-radius: $mo-border-radius;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+
+        &::before {
+            content: '';
+            position: absolute;
+            z-index: -1;
+            top: 50%;
+            left: 50%;
+            width: 1em;
+            height: 1em;
+            border-radius: 50%;
+            background-color: white;
+            transform-origin: center;
+            transform: translate3d(-50%, -50%, 0) scale(0, 0);
+            transition: transform 500ms ease-in-out;
+        }
+
+        &:hover::before {
+            transform: translate3d(-50%, -50%, 0) scale(15, 15);
+        }
+
     }
 
     .mo-sm {
@@ -19,18 +47,24 @@
         padding: 8px 18px;
     }
 
-    @each $colorKey, $color in $mo-colors {
-        .mo-#{$colorKey}{
+    @each $colorKey,
+    $color in $mo-colors {
+        .mo-#{$colorKey} {
             background-color: $color;
             color: white;
-    
+
             &:hover {
-                background-color: lighten($mo-blue, 20%);
+                background-color: lighten($color, 10%);
             }
-    
+
             &:focus {
-                background-color: var(--mo-blue-1);
+                background-color: $color;
             }
+
+            &:active {
+                background-color: darken($color, 8%);
+            }
+
         }
     }
 
