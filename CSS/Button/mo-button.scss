@@ -5,15 +5,18 @@
     &-light {
         .mo-btn {
             padding: 6px 12px;
-            border: none;
+            background-color: white;
+            border: 1px solid #ccc;
             border-radius: $mo-border-radius;
             transition: all $mo-transition;
             cursor: pointer;
 
+            &:hover{
+                background-color: #f2f2f2;
+            }
+
             &-animation {
-                padding: 6px 12px;
-                border: none;
-                border-radius: $mo-border-radius;
+                @extend .mo-btn;
                 position: relative;
                 overflow: hidden;
                 z-index: 1;
@@ -30,23 +33,46 @@
                     background-color: rgba(255, 255, 255, 0.2);
                     transform-origin: center;
                     transform: translate3d(-50%, -50%, 0) scale(0, 0);
-                    transition: transform .3s ease-in-out;
+                    transition: transform .5s ease-in-out;
                 }
 
                 &:hover::before {
                     transform: translate3d(-50%, -50%, 0) scale(15, 15);
                 }
             }
+
+            &-outline{
+                @extend .mo-btn;
+            }
+        }
+
+        .mo-btn.long {
+            display: block;
+            width: 100%;
         }
 
         @each $colorKey,
         $color in $mo-colors {
-            .mo-#{$colorKey} {
+            .mo-btn.mo-#{$colorKey} {
                 background-color: $color;
-                color: white;
+                border: 1px solid $color;
+                @if $colorKey=='light' {
+                    color: black;
+                }
+
+                @else {
+                    color: white;
+                }
+
 
                 &:hover {
-                    background-color: lighten($color, 8%);
+                    @if $colorKey=='light' {
+                        background-color: darken($color, 10%);
+                    }
+
+                    @else {
+                        background-color: lighten($color, 8%);
+                    }
                 }
 
                 &:focus {
@@ -57,6 +83,46 @@
                     background-color: darken($color, 8%);
                 }
 
+                &:disabled{
+                    background-color: lighten($color,28%);
+                    border: 1px solid lighten($color,28%);
+                    cursor: not-allowed;
+                }
+            }
+
+            .mo-btn-animation.mo-#{$colorKey} {
+                background-color: $color;
+                border: 1px solid $color;
+
+                @if $colorKey=='light' {
+                    color: black;
+                }
+
+                @else {
+                    color: white;
+                }
+
+                &:focus {
+                    background-color: $color;
+                }
+
+                &:active {
+                    background-color: darken($color, 5%);
+                }
+            }
+
+            .mo-btn-outline.mo-#{$colorKey} {
+                color: darken($color,3%) ;
+                background-color: transparent;
+                border: 1px solid darken($color,3%);
+                &:hover{
+                    background-color: transparent;
+                    border-color: lighten($color,10%) ;
+                    color: lighten($color,10%);
+                }
+                &:focus{
+                    background-color: transparent;
+                }
             }
         }
     }
@@ -68,4 +134,5 @@
     &-lg {
         padding: 8px 18px;
     }
+
 }
